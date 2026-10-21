@@ -1,0 +1,48 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ink:#1e293b; --muted:#64748b; --brand:#1d4ed8; --line:#e2e8f0; --bg:#f8fafc; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.site-header { background: linear-gradient(135deg, #0f2557, #1d4ed8 60%, #0891b2); color: #fff; padding: 40px 0 30px; margin-bottom: 26px; }
+.site-header .brand { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; opacity: .85; }
+.site-header h1 { font-size: clamp(26px, 5vw, 38px); margin: 6px 0 8px; }
+.site-header .sub { max-width: 720px; opacity: .92; }
+.backlink { color: #fff; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: 14px; }
+.chip.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.chip:focus-visible, .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; padding-bottom: 30px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.card img { width: 100%; height: 200px; object-fit: cover; background: #e2e8f0; }
+.card-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.tag { color: var(--brand); font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.card h2 { font-size: 19px; }
+.desc { color: var(--ink); font-size: 14.5px; }
+.meta { color: var(--muted); font-size: 12.5px; margin-top: auto; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-block; padding: 9px 16px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; font-size: 14px; cursor: pointer; }
+.btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.badge { font-size: 12.5px; color: #92400e; background: #fef3c7; border: 1px solid #fde68a; padding: 5px 10px; border-radius: 999px; }
+.note { color: var(--muted); padding-bottom: 30px; }
+.site-footer { color: var(--muted); font-size: 13.5px; padding: 10px 0 40px; }
+.editor-layout { display: grid; grid-template-columns: minmax(320px, 480px) 1fr; gap: 18px; padding-bottom: 40px; align-items: start; }
+@media (max-width: 860px) { .editor-layout { grid-template-columns: 1fr; } }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+.panel h2 { font-size: 18px; margin-bottom: 12px; }
+.panel h3 { font-size: 15.5px; margin: 18px 0 6px; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.field input, .field textarea, .share-row input { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; font: inherit; font-size: 14.5px; }
+.hint { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+.photo-slots { display: grid; gap: 14px; }
+.photo-slot { border: 1px dashed var(--line); border-radius: 12px; padding: 10px; display: grid; gap: 8px; }
+.photo-slot img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+.save-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.status { font-size: 13.5px; color: #047857; }
+.share-row { display: flex; gap: 8px; }
+.share-row input { flex: 1; }
+.qr-box { margin-top: 12px; }
+.qr-box svg { width: 160px; height: 160px; }
+.preview-panel iframe { width: 100%; height: 640px; border: 1px solid var(--line); border-radius: 12px; background: #fff; margin-bottom: 12px; }

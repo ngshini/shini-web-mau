@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chỉnh sửa mẫu — Shini Web</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="brand"><a class="backlink" href="index.html">← Bộ sưu tập</a></p>
+    <h1 id="tplName">Chỉnh sửa mẫu</h1>
+    <p class="sub" id="tplMeta"></p>
+  </div>
+</header>
+
+<main class="wrap editor-layout">
+  <section class="panel" aria-labelledby="formTitle">
+    <h2 id="formTitle">Nội dung của bạn</h2>
+    <form id="editForm" novalidate></form>
+
+    <div id="photoBlock" hidden>
+      <h3>Ảnh của bạn</h3>
+      <p class="hint" id="photoHint"></p>
+      <div id="photoSlots" class="photo-slots"></div>
+    </div>
+
+    <div class="save-row">
+      <button type="button" class="btn primary" id="saveBtn">Lưu nội dung</button>
+      <button type="button" class="btn" id="resetBtn">Khôi phục mặc định</button>
+      <p class="status" id="saveStatus" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="share-box">
+      <h3>Link chia sẻ &amp; mã QR</h3>
+      <p class="hint">Link mang theo phần chữ bạn đã nhập. Ảnh tải lên được lưu trên trình duyệt máy này; khi cần gửi kèm ảnh cho người nhận ở máy khác, hãy liên hệ Shini Web để được bản đóng gói riêng.</p>
+      <div class="share-row">
+        <input type="text" id="shareLink" readonly aria-label="Link chia sẻ bản đã cá nhân hóa">
+        <button type="button" class="btn" id="copyBtn">Sao chép link</button>
+      </div>
+      <div id="qrBox" class="qr-box" aria-label="Mã QR của link chia sẻ"></div>
+      <p class="status" id="shareStatus" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="panel preview-panel" aria-labelledby="previewTitle">
+    <h2 id="previewTitle">Xem trước trực tiếp</h2>
+    <iframe id="preview" title="Xem trước mẫu đang chỉnh" loading="lazy"></iframe>
+    <p><a class="btn" id="openFull" href="#" target="_blank" rel="noopener">Mở xem trước toàn màn hình</a></p>
+  </section>
+</main>
+
+<script src="catalog.js"></script>
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="assets/editor.js"></script>
+</body>
+</html>

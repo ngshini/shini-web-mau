@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Một bất ngờ sinh nhật dành cho bạn!</title>
+    <link rel="stylesheet" href="vendor/fonts.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="step active" id="step1">
+        <div class="welcome-card">
+            <h1 class="welcome-title">Bạn có một bất ngờ!</h1>
+            <p class="welcome-message">Bấm nút bên dưới để bắt đầu hành trình sinh nhật của bạn…</p>
+            <button id="startButton" class="action-button">Bắt đầu bữa tiệc!</button>
+        </div>
+    </div>
+
+    <div class="step" id="step2">
+        <div class="envelope-container" id="envelopeContainer" role="button" tabindex="0" aria-label="Phong bì thư. Nhấn Enter để mở thư.">
+            <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-seal"></div>
+            </div>
+            <p class="click-instruction">Chạm vào phong bì nhé!</p>
+        </div>
+    </div>
+
+    <div class="step" id="step3">
+        <div class="letter-container" id="letterContainer">
+            <div class="letter">
+                <p>Gửi <span data-bind="nguoiNhan">bạn</span> thân mến,</p>
+                <p data-bind="loiChucThu">Tấm thiệp này mang theo những lời chúc từ tận đáy lòng, sẵn sàng mở ra một bữa tiệc sinh nhật thật đáng nhớ dành riêng cho bạn.</p>
+                <p>Bấm nút bên dưới để khám phá bất ngờ sinh nhật của bạn nhé!</p>
+                <button id="unfoldButton" class="action-button">Mở bất ngờ của mình!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="step" id="step4">
+        <div class="celebration-container">
+            <div class="fireworks-container"></div>
+            <div class="confetti-cannon-container"></div>
+            <div class="balloons-container"></div>
+
+            <div class="celebration-card">
+                <p class="sub-greeting">Gửi người tuyệt vời</p>
+                <h1 class="main-greeting typewriter-text" id="finalGreeting">Chúc mừng sinh nhật,</h1>
+                <h2 class="recipient-name"><span data-bind="nguoiNhan">bạn</span>!</h2>
+                <div class="cake-container">
+                    <div class="cake">
+                        <div class="plate"></div>
+                        <div class="layer layer-bottom"></div>
+                        <div class="layer layer-middle"></div>
+                        <div class="layer layer-top"></div>
+                        <div class="icing"></div>
+                        <div class="drip drip1"></div>
+                        <div class="drip drip2"></div>
+                        <div class="drip drip3"></div>
+                        <div class="candle">
+                            <div class="flame" id="candleFlame"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="final-wish" data-bind="loiChuc">Chúc ngày đặc biệt của bạn tràn ngập niềm vui, tiếng cười và mọi điều tốt đẹp nhất. Chúc một tuổi mới với thật nhiều chuyến phiêu lưu tuyệt vời!</p>
+                <p class="signature">Thân mến, <span data-bind="nguoiGui">mình</span> <span class="heart-icon"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/cau-hinh.js" data-mau="sinh-nhat-phao-hoa" data-goc="../../"></script>
+    <script src="script.js"></script>
+</body>
+</html>
