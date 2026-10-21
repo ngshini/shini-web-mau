@@ -1,6 +1,6 @@
 # Shini Web — Bộ sưu tập website mẫu
 
-Dự án bán website mẫu của Shini Web: bộ sưu tập tĩnh (HTML/CSS/JS thuần, không cần build),
+Dự án bán website mẫu của Shini Web (10 mẫu, đủ 6 nhóm): bộ sưu tập tĩnh (HTML/CSS/JS thuần, không cần build),
 mỗi mẫu chạy trực tiếp trong thư mục `templates/`, chỉnh nội dung/ảnh ngay trong trình duyệt,
 tạo link chia sẻ và mã QR cho bản đã cá nhân hóa.
 

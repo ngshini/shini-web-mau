@@ -19,9 +19,15 @@ TEMPLATES = [
     ("cafe-nang-about", "/templates/cafe-nang/about.html"),
     ("cafe-nang-products", "/templates/cafe-nang/products.html"),
     ("cafe-nang-store", "/templates/cafe-nang/store.html"),
+    ("sinh-nhat-hoa-anh-dao", "/templates/sinh-nhat-hoa-anh-dao/"),
+    ("thiep-cuoi-hien-dai", "/templates/thiep-cuoi-hien-dai/"),
+    ("portfolio-vcard", "/templates/portfolio-vcard/"),
+    ("web-doanh-nghiep", "/templates/web-doanh-nghiep/"),
+    ("thiep-moi-da-nang", "/templates/thiep-moi-da-nang/"),
+    ("su-kien-cong-dong", "/templates/su-kien-cong-dong/"),
     ("bo-suu-tap", "/"),
 ]
-THUMB_IDS = {"bo-hoa-dem-sao", "sinh-nhat-phao-hoa", "thiep-cuoi-co-dien", "cafe-nang"}
+THUMB_IDS = {"bo-hoa-dem-sao", "sinh-nhat-phao-hoa", "thiep-cuoi-co-dien", "cafe-nang", "portfolio-vcard", "web-doanh-nghiep", "sinh-nhat-hoa-anh-dao", "thiep-cuoi-hien-dai", "thiep-moi-da-nang", "su-kien-cong-dong"}
 
 async def check_page(browser, name, path, results):
     for label, vp in [("desktop", {"width": 1280, "height": 800}), ("mobile", {"width": 390, "height": 844})]:
@@ -31,7 +37,8 @@ async def check_page(browser, name, path, results):
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.on("console", lambda m: errors.append(m.text) if (m.type == "error" and "ERR_TUNNEL" not in m.text and "Failed to load resource" not in m.text) else None)
         page.on("response", lambda r: bad.append(f"{r.status} {r.url}") if (r.status >= 400 and "127.0.0.1" in r.url) else None)
-        page.on("requestfailed", lambda r: bad.append(f"FAILED {r.url} {r.failure}") if "127.0.0.1" in r.url else ext.append(f"NGOAI {r.url}"))
+        # ERR_ABORTED = trình duyệt tự hủy một lần tải trùng/bị thay thế (ví dụ <video> nạp lại nguồn) — không phải tài nguyên hỏng; 404 thật vẫn bị bắt qua sự kiện response.
+        page.on("requestfailed", lambda r: bad.append(f"FAILED {r.url} {r.failure}") if ("127.0.0.1" in r.url and "ERR_ABORTED" not in (r.failure or "")) else (ext.append(f"NGOAI {r.url}") if "127.0.0.1" not in r.url else None))
         try:
             await page.goto(BASE + path, wait_until="networkidle", timeout=30000)
         except Exception as e:
@@ -71,6 +78,20 @@ async def editor_tests(browser, results):
     results.append({"test": "chinh-sua + XSS + link chia se (thiep cuoi)",
                     "heroTrongIframe": hero.strip()[:80], "xssChay": xss,
                     "coQR": qr, "linkMoDungTen": "Tuấn Kiểm Tra" in hero2, "loiJS": errors})
+    # --- Test 1b: trình chỉnh sửa mẫu sự kiện (nhập tên -> xem trước cập nhật) ---
+    errs6 = []
+    page.on("pageerror", lambda e: errs6.append(str(e)))
+    await page.goto(BASE + "/chinh-sua.html?mau=su-kien-cong-dong", wait_until="networkidle")
+    await page.fill("#f-tenSuKien", "Meetup Lập Trình Viên 2026")
+    tieu_de = ""
+    for _ in range(12):
+        await page.wait_for_timeout(500)
+        frame = next((f for f in page.frames if "/templates/su-kien-cong-dong" in f.url), None)
+        if not frame: continue
+        tieu_de = await frame.evaluate("document.querySelector('h1') ? document.querySelector('h1').textContent : ''")
+        if "Meetup" in tieu_de: break
+    results.append({"test": "chinh-sua (su-kien)", "tieuDeTrongXemTruoc": tieu_de.strip()[:60], "loiJS": errs6})
+
     # --- Test 2: tải ảnh (café) ---
     await page.goto(BASE + "/chinh-sua.html?mau=cafe-nang", wait_until="networkidle")
     await page.wait_for_timeout(1000)

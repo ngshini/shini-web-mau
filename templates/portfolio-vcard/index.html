@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồ sơ cá nhân — Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link href="vendor/fonts.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Ảnh đại diện" width="80" data-photo="0">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" data-bind="hoTen">Nguyễn Văn An</h1>
+
+          <p class="title" data-bind="chucDanh">Thiết kế &amp; lập trình web</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Xem thông tin liên hệ</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Thư điện tử</p>
+
+              <a href="mailto:lienhe@example.com" class="contact-link" data-bind="email">lienhe@example.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Điện thoại</p>
+
+              <a href="tel:+84901234567" class="contact-link" data-bind="soDienThoai">0901 234 567</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Ngày sinh</p>
+
+              <time data-bind="ngaySinh">23/06/1995</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Địa điểm</p>
+
+              <address data-bind="diaChi">Quận 1, TP. Hồ Chí Minh</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link data-target-page="about">Giới thiệu</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target-page="resume">Hồ sơ</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target-page="portfolio">Dự án</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target-page="blog">Bài viết</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target-page="contact">Liên hệ</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">Giới thiệu</h2>
+        </header>
+
+        <section class="about-text">
+          <p data-bind="gioiThieu">Tôi là giám đốc sáng tạo kiêm nhà thiết kế UI/UX, làm việc trong lĩnh vực phát triển web và truyền thông. Tôi thích biến những bài toán phức tạp thành thiết kế đơn giản, đẹp và dễ dùng.</p>
+
+          <p>Công việc của tôi là xây dựng website vừa tiện dụng, thân thiện, vừa thu hút. Tôi luôn thêm dấu ấn riêng vào từng sản phẩm để thông điệp và bản sắc của bạn được truyền tải một cách sáng tạo nhất.</p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Tôi đang làm gì</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-bind="dv1Ten">Thiết kế web</h4>
+
+                <p class="service-item-text">
+                  Thiết kế hiện đại, chất lượng cao theo tiêu chuẩn chuyên nghiệp.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-bind="dv2Ten">Lập trình web</h4>
+
+                <p class="service-item-text">
+                  Phát triển website chất lượng cao, tốc độ nhanh và ổn định.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-bind="dv3Ten">Ứng dụng di động</h4>
+
+                <p class="service-item-text">
+                  Phát triển ứng dụng cho iOS và Android theo quy trình chuyên nghiệp.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-bind="dv4Ten">Chụp ảnh sản phẩm</h4>
+
+                <p class="service-item-text">
+                  Chụp ảnh chất lượng cao cho sản phẩm và thương hiệu.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Nhận xét của khách hàng</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Trần Văn Đức" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Trần Văn Đức</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Anh ấy được mời xây dựng bộ nhận diện cho công ty chúng tôi và cả đội rất hài lòng với kết quả. Nhiều kinh nghiệm, làm việc tận tâm và luôn lắng nghe nhu cầu của khách hàng. (Nhận xét mẫu — thay bằng nhận xét thật của khách hàng của bạn.)
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Lê Thu Hà" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Lê Thu Hà</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Anh ấy được mời xây dựng bộ nhận diện cho công ty chúng tôi và cả đội rất hài lòng với kết quả. Nhiều kinh nghiệm, làm việc tận tâm và luôn lắng nghe nhu cầu của khách hàng. (Nhận xét mẫu — thay bằng nhận xét thật của khách hàng của bạn.)
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Phạm Ngọc Anh" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Phạm Ngọc Anh</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Anh ấy được mời xây dựng bộ nhận diện cho công ty chúng tôi và cả đội rất hài lòng với kết quả. Nhiều kinh nghiệm, làm việc tận tâm và luôn lắng nghe nhu cầu của khách hàng. (Nhận xét mẫu — thay bằng nhận xét thật của khách hàng của bạn.)
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Ngô Minh Tuấn" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ngô Minh Tuấn</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Anh ấy được mời xây dựng bộ nhận diện cho công ty chúng tôi và cả đội rất hài lòng với kết quả. Nhiều kinh nghiệm, làm việc tận tâm và luôn lắng nghe nhu cầu của khách hàng. (Nhận xét mẫu — thay bằng nhận xét thật của khách hàng của bạn.)
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Trần Văn Đức" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Trần Văn Đức</h4>
+
+              <time datetime="2021-06-14">14 tháng 6, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Anh ấy được mời xây dựng bộ nhận diện cho công ty chúng tôi và cả đội rất hài lòng với kết quả. Nhiều kinh nghiệm, làm việc tận tâm và luôn lắng nghe nhu cầu của khách hàng. (Nhận xét mẫu — thay bằng nhận xét thật của khách hàng của bạn.)
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Khách hàng &amp; đối tác</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-2-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Hồ sơ</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Học vấn</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Trường Đại học Mỹ thuật (mẫu)</h4>
+
+              <span>2007 — 2008</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Học viện Nghệ thuật (mẫu)</h4>
+
+              <span>2006 — 2007</span>
+
+              <p class="timeline-text">
+                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
+                omnis..
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Trường THPT chuyên Nghệ thuật (mẫu)</h4>
+
+              <span>2002 — 2004</span>
+
+              <p class="timeline-text">
+                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
+                magni dolores
+                eos.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Kinh nghiệm</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Giám đốc sáng tạo</h4>
+
+              <span>2015 — Present</span>
+
+              <p class="timeline-text">
+                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
+                molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Trưởng phòng thiết kế</h4>
+
+              <span>2013 — 2015</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Thiết kế web</h4>
+
+              <span>2010 — 2013</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Kỹ năng của tôi</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Thiết kế web</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Thiết kế đồ họa</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Xây dựng thương hiệu</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Dự án</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Chọn danh mục</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item data-filter-value="all">Tất cả</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item data-filter-value="thiết kế web">Thiết kế web</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item data-filter-value="ứng dụng">Ứng dụng</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item data-filter-value="lập trình web">Lập trình web</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="lập trình web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy" data-photo="1">
+                </figure>
+
+                <h3 class="project-title" data-bind="duAn1">Ứng dụng tài chính cá nhân</h3>
+
+                <p class="project-category">Lập trình web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="lập trình web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy" data-photo="2">
+                </figure>
+
+                <h3 class="project-title" data-bind="duAn2">Website du lịch Orizon</h3>
+
+                <p class="project-category">Lập trình web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="thiết kế web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy" data-photo="3">
+                </figure>
+
+                <h3 class="project-title" data-bind="duAn3">Thiết kế thương hiệu Fundo</h3>
+
+                <p class="project-category">Thiết kế web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="ứng dụng">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Trò chơi đối kháng</h3>
+
+                <p class="project-category">Ứng dụng</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="thiết kế web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Thiết kế DSM</h3>
+
+                <p class="project-category">Thiết kế web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="thiết kế web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Thiết kế MetaSpark</h3>
+
+                <p class="project-category">Thiết kế web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="lập trình web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Công cụ tóm tắt nội dung</h3>
+
+                <p class="project-category">Lập trình web</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="ứng dụng">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Ứng dụng quản lý công việc</h3>
+
+                <p class="project-category">Ứng dụng</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="lập trình web">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Website giới thiệu Arrival</h3>
+
+                <p class="project-category">Lập trình web</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Bài viết</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Các hội thảo thiết kế đáng chú ý năm 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Các hội thảo thiết kế đáng chú ý năm 2022</h3>
+
+                  <p class="blog-text">
+                    Ghi chép và chia sẻ từ quá trình làm nghề thiết kế. (Bài viết mẫu — thay bằng bài viết thật của bạn.)
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Những font chữ mọi nhà thiết kế nên biết" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Những font chữ mọi nhà thiết kế nên biết</h3>
+
+                  <p class="blog-text">
+                    Chia sẻ kinh nghiệm thực tế về thiết kế và lập trình web. (Bài viết mẫu.)
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Điểm tin thiết kế #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Điểm tin thiết kế #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="Tương tác giao diện nổi bật trong tuần" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Tương tác giao diện nổi bật trong tuần</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="Nghệ thuật khoảng trắng thường bị lãng quên" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Nghệ thuật khoảng trắng thường bị lãng quên</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Điểm tin thiết kế #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Thiết kế</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">23 tháng 2, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Điểm tin thiết kế #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Liên hệ</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Gửi tin nhắn</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Họ tên" aria-label="Họ tên" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Địa chỉ email" aria-label="Địa chỉ email" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Nội dung tin nhắn" aria-label="Nội dung tin nhắn" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Gửi tin nhắn</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="vendor/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="vendor/ionicons/ionicons.js"></script>
+  <script src="../../assets/cau-hinh.js" data-mau="portfolio-vcard" data-goc="../../"></script>
+  <script src="assets/js/portfolio.js"></script>
+
+</body>
+
+</html>

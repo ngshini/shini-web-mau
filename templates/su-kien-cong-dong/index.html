@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sự kiện cộng đồng — Workshop & Meetup</title>
+<meta name="description" content="Trang sự kiện: workshop, hội thảo, meetup — lịch trình, đếm ngược, bản đồ và đăng ký qua WhatsApp.">
+<link href="vendor/fonts.css" rel="stylesheet">
+<style>
+  :root { --nen:#0d1526; --the:#16223c; --vien:#26355a; --chu:#eef2ff; --phu:#9fb0d8; --nhan:#ffb454; --nhan2:#53d8fb; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Be Vietnam Pro',sans-serif; background:var(--nen); color:var(--chu); line-height:1.65; }
+  .khung { max-width:880px; margin:0 auto; padding:0 18px 90px; }
+  header.hero { position:relative; border-radius:0 0 22px 22px; overflow:hidden; margin:0 -18px; }
+  header.hero img { width:100%; height:380px; object-fit:cover; display:block; opacity:.5; background:#1b2a4a; }
+  .hero-noi { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:28px; background:linear-gradient(180deg,transparent 30%,rgba(13,21,38,.92)); }
+  .chip { display:inline-block; background:rgba(255,180,84,.16); color:var(--nhan); border:1px solid rgba(255,180,84,.5); padding:4px 12px; border-radius:999px; font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; width:fit-content; }
+  h1 { font-size:clamp(30px,6vw,46px); font-weight:800; line-height:1.15; margin:12px 0 6px; }
+  .slogan { color:var(--phu); font-size:17px; max-width:56ch; }
+  .dem { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+  .dem .o { background:rgba(22,34,60,.85); border:1px solid var(--vien); border-radius:12px; min-width:68px; text-align:center; padding:8px 6px; }
+  .dem .so { font-size:24px; font-weight:800; color:#fff; }
+  .dem .nhan { font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--phu); }
+  section { margin-top:38px; }
+  h2 { font-size:24px; font-weight:800; margin-bottom:14px; }
+  h2 .gach { color:var(--nhan2); }
+  .the { background:var(--the); border:1px solid var(--vien); border-radius:16px; padding:20px 22px; }
+  .mo-ta { white-space:pre-line; color:#dbe4ff; }
+  .lich { display:grid; gap:12px; }
+  .muc { display:flex; gap:16px; background:var(--the); border:1px solid var(--vien); border-radius:14px; padding:14px 18px; align-items:baseline; }
+  .muc .gio { font-weight:800; color:var(--nhan); min-width:64px; }
+  .muc .ten { font-weight:600; }
+  .muc .mt { color:var(--phu); font-size:14.5px; }
+  .hai-cot { display:grid; grid-template-columns:1.1fr .9fr; gap:16px; }
+  @media (max-width:680px){ .hai-cot{ grid-template-columns:1fr; } }
+  .hai-cot img { width:100%; height:100%; min-height:220px; object-fit:cover; border-radius:16px; background:#1b2a4a; }
+  .ban-do { width:100%; height:260px; border:0; border-radius:14px; background:#1b2a4a; }
+  .nut { display:inline-block; border-radius:999px; padding:13px 28px; font-weight:700; text-decoration:none; margin:4px 6px 4px 0; }
+  .nut-chinh { background:var(--nhan); color:#231600; }
+  .nut-phu { border:1px solid var(--vien); color:var(--chu); background:transparent; }
+  .thong-tin p { margin:5px 0; color:#dbe4ff; }
+  .thong-tin strong { color:#fff; }
+  .an { display:none !important; }
+</style>
+</head>
+<body>
+<div class="khung">
+  <header class="hero">
+    <img data-photo="0" src="assets/anh-0.jpg" alt="Ảnh bìa sự kiện" id="anhBia">
+    <div class="hero-noi">
+      <span class="chip">Sự kiện cộng đồng</span>
+      <h1 data-bind="tenSuKien">Workshop: Xây dựng thương hiệu cá nhân</h1>
+      <p class="slogan" data-bind="slogan">Một buổi chia sẻ thực chiến dành cho người trẻ muốn nổi bật đúng cách.</p>
+      <div class="dem" role="timer" aria-label="Đếm ngược tới sự kiện">
+        <div class="o"><div class="so" id="dNgay">–</div><div class="nhan">Ngày</div></div>
+        <div class="o"><div class="so" id="dGio">–</div><div class="nhan">Giờ</div></div>
+        <div class="o"><div class="so" id="dPhut">–</div><div class="nhan">Phút</div></div>
+        <div class="o"><div class="so" id="dGiay">–</div><div class="nhan">Giây</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Giới thiệu <span class="gach">/</span></h2>
+    <div class="hai-cot">
+      <div class="the"><p class="mo-ta" data-bind="moTa">Buổi workshop kéo dài 3 giờ với phần chia sẻ, thảo luận nhóm và hỏi đáp trực tiếp. Người tham dự ra về với một bản kế hoạch hành động cụ thể cho 30 ngày tiếp theo.
+
+Phù hợp cho sinh viên, người mới đi làm và chủ doanh nghiệp nhỏ. Mang theo laptop hoặc sổ tay để ghi chép.</p></div>
+      <img data-photo="1" src="assets/anh-1.jpg" alt="Ảnh không gian sự kiện">
+    </div>
+  </section>
+
+  <section>
+    <h2>Lịch trình <span class="gach">/</span></h2>
+    <div class="lich">
+      <div class="muc"><div class="gio" data-bind="muc1Gio">08:30</div><div><div class="ten" data-bind="muc1Ten">Đón khách & check-in</div><div class="mt" data-bind="muc1MoTa">Nhận tài liệu và thẻ tham dự.</div></div></div>
+      <div class="muc"><div class="gio" data-bind="muc2Gio">09:00</div><div><div class="ten" data-bind="muc2Ten">Phần chia sẻ chính</div><div class="mt" data-bind="muc2MoTa">Nội dung trọng tâm của buổi workshop.</div></div></div>
+      <div class="muc"><div class="gio" data-bind="muc3Gio">10:30</div><div><div class="ten" data-bind="muc3Ten">Thảo luận nhóm & thực hành</div><div class="mt" data-bind="muc3MoTa">Làm việc nhóm theo chủ đề, có hướng dẫn trực tiếp.</div></div></div>
+      <div class="muc"><div class="gio" data-bind="muc4Gio">11:30</div><div><div class="ten" data-bind="muc4Ten">Hỏi đáp & kết nối</div><div class="mt" data-bind="muc4MoTa">Giải đáp thắc mắc và giao lưu với diễn giả.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Thời gian & địa điểm <span class="gach">/</span></h2>
+    <div class="the thong-tin">
+      <p><strong>Thời gian:</strong> <span class="js-ngay">Thứ Bảy, ngày 15 tháng 11 năm 2026</span> — bắt đầu <span data-bind="gioBatDau">08:30</span></p>
+      <p><strong>Địa điểm:</strong> <span data-bind="diaDiem">Không gian sáng tạo mẫu</span></p>
+      <p><strong>Địa chỉ:</strong> <span data-bind="diaChi">Địa chỉ mẫu, TP. Hồ Chí Minh</span></p>
+      <p><strong>Liên hệ ban tổ chức:</strong> <span data-bind="soDienThoai">0901 234 567</span></p>
+      <div style="margin-top:14px;">
+        <a class="nut nut-chinh" id="nutDangKy" href="#" target="_blank" rel="noopener">Đăng ký qua WhatsApp</a>
+        <a class="nut nut-phu" id="nutChiDuong" href="#" target="_blank" rel="noopener">Chỉ đường</a>
+        <a class="nut nut-phu" id="nutLich" href="#" target="_blank" rel="noopener">Lưu vào Google Calendar</a>
+      </div>
+      <iframe class="ban-do" id="banDo" title="Bản đồ địa điểm sự kiện" loading="lazy" src="about:blank" style="margin-top:16px;"></iframe>
+    </div>
+  </section>
+</div>
+<script src="../../assets/cau-hinh.js" data-mau="su-kien-cong-dong" data-goc="../../"></script>
+<script>
+(() => {
+  'use strict';
+  const cfg = window.TPL_CFG || {};
+  // Khi mở trực tiếp (chưa qua trình chỉnh sửa), lấy giá trị mặc định ngay từ nội dung đang hiển thị.
+  const tuTrang = (key) => {
+    const el = document.querySelector('[data-bind="' + key + '"]');
+    return el ? el.textContent.trim() : '';
+  };
+  const lay = (key) => (cfg[key] !== undefined && cfg[key] !== '' ? cfg[key] : tuTrang(key));
+  const ngay = cfg.ngay || '2026-11-15';
+  const gio = (cfg.gioBatDau || '08:30').toString().slice(0, 5);
+  const moc = new Date(ngay + 'T' + gio + ':00');
+  const d = new Date(ngay + 'T00:00:00');
+  if (!isNaN(d)) {
+    const thu = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][d.getDay()];
+    document.querySelectorAll('.js-ngay').forEach(el => el.textContent = thu + ', ngày ' + d.getDate() + ' tháng ' + (d.getMonth() + 1) + ' năm ' + d.getFullYear());
+  }
+  const pad = n => String(n).padStart(2, '0');
+  const tick = () => {
+    let diff = moc - new Date();
+    if (diff < 0) diff = 0;
+    const s = Math.floor(diff / 1000);
+    document.getElementById('dNgay').textContent = Math.floor(s / 86400);
+    document.getElementById('dGio').textContent = pad(Math.floor(s / 3600) % 24);
+    document.getElementById('dPhut').textContent = pad(Math.floor(s / 60) % 60);
+    document.getElementById('dGiay').textContent = pad(s % 60);
+  };
+  tick(); setInterval(tick, 1000);
+  const diaChi = (lay('diaChi') || '').trim();
+  const diaDiem = (lay('diaDiem') || '').trim();
+  const noi = encodeURIComponent((diaDiem + ' ' + diaChi).trim());
+  document.getElementById('banDo').setAttribute('src', 'https://www.google.com/maps?q=' + noi + '&output=embed');
+  document.getElementById('nutChiDuong').setAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=' + noi);
+  const lich = new URL('https://calendar.google.com/calendar/render');
+  lich.searchParams.set('action', 'TEMPLATE');
+  lich.searchParams.set('text', lay('tenSuKien') || 'Sự kiện');
+  const dinh = dt => dt.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  lich.searchParams.set('dates', dinh(moc) + '/' + dinh(new Date(moc.getTime() + 3 * 3600 * 1000)));
+  lich.searchParams.set('details', lay('moTa') || '');
+  lich.searchParams.set('location', (diaDiem + ' ' + diaChi).trim());
+  document.getElementById('nutLich').setAttribute('href', lich.toString());
+  const sdt = (lay('soDienThoai') || '').replace(/\D/g, '');
+  const nutDK = document.getElementById('nutDangKy');
+  if (sdt) {
+    const so = sdt.startsWith('0') ? '84' + sdt.slice(1) : sdt;
+    const tn = encodeURIComponent('Xin chào ban tổ chức, tôi muốn đăng ký tham dự "' + (lay('tenSuKien') || 'sự kiện') + '" vào ' + (document.querySelector('.js-ngay') || {}).textContent + '.');
+    nutDK.setAttribute('href', 'https://wa.me/' + so + '?text=' + tn);
+  } else { nutDK.classList.add('an'); }
+})();
+</script>
+</body>
+</html>

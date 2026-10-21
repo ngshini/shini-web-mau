@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiệp mời — Kính mời quý khách</title>
+<meta name="description" content="Thiệp mời trực tuyến: tốt nghiệp, tân gia, kỷ niệm, họp mặt — có đếm ngược, bản đồ và xác nhận tham dự.">
+<link href="vendor/fonts.css" rel="stylesheet">
+<style>
+  :root { --giay:#faf6ee; --muc:#3c4a3a; --re:#7a8b6f; --vang:#b08d57; --vien:#e3d9c6; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Be Vietnam Pro',sans-serif; background:#efe9db; color:var(--muc); line-height:1.65; }
+  .khung { max-width:680px; margin:0 auto; padding:28px 16px 90px; }
+  .thiep { background:var(--giay); border:1px solid var(--vien); border-radius:18px; overflow:hidden; box-shadow:0 24px 60px rgba(60,74,58,.16); }
+  .anh-dau { width:100%; height:300px; object-fit:cover; display:block; background:#dfe5d8; }
+  .noi-dung { padding:38px 30px 42px; text-align:center; }
+  .hoa-van { color:var(--vang); letter-spacing:.5em; font-size:15px; }
+  .loai { margin-top:14px; text-transform:uppercase; letter-spacing:.32em; font-size:12px; font-weight:600; color:var(--re); }
+  h1 { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(30px,6vw,44px); line-height:1.2; margin:12px 0 6px; }
+  .nguoi { font-family:'Playfair Display',serif; font-style:italic; font-size:19px; color:#5c6b58; }
+  .loi-moi { margin:20px auto 6px; max-width:52ch; font-size:16.5px; white-space:pre-line; }
+  .dem-nguoc { display:flex; justify-content:center; gap:10px; margin:26px 0 6px; flex-wrap:wrap; }
+  .dem-nguoc .o { background:#fff; border:1px solid var(--vien); border-radius:12px; min-width:70px; padding:10px 6px; }
+  .dem-nguoc .so { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; }
+  .dem-nguoc .nhan { font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--re); }
+  .thong-tin { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0; text-align:left; }
+  @media (max-width:560px){ .thong-tin{ grid-template-columns:1fr; } }
+  .thong-tin .muc { background:#fff; border:1px solid var(--vien); border-radius:12px; padding:14px 16px; }
+  .thong-tin .nhan { font-size:11.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--re); font-weight:600; }
+  .thong-tin .gia-tri { font-size:16.5px; font-weight:600; margin-top:3px; }
+  .anh-giua { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0 22px; }
+  .anh-giua img { width:100%; height:190px; object-fit:cover; border-radius:12px; background:#dfe5d8; }
+  .nut { display:inline-block; border-radius:999px; padding:12px 26px; font-weight:600; text-decoration:none; margin:4px; }
+  .nut-chinh { background:var(--muc); color:#fff; }
+  .nut-phu { background:#fff; color:var(--muc); border:1px solid var(--muc); }
+  .ban-do { width:100%; height:280px; border:0; border-radius:12px; margin-top:18px; background:#e8e4da; }
+  .loi-ket { margin-top:26px; font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:#5c6b58; white-space:pre-line; }
+  .an { display:none !important; }
+</style>
+</head>
+<body>
+<div class="khung">
+  <article class="thiep">
+    <img class="anh-dau" data-photo="0" src="assets/anh-0.jpg" alt="Ảnh bìa thiệp mời" id="anhBia">
+    <div class="noi-dung">
+      <div class="hoa-van" aria-hidden="true">✦ ✦ ✦</div>
+      <p class="loai" data-bind="loaiSuKien">Lễ tốt nghiệp</p>
+      <h1 data-bind="tenSuKien">Lễ Tốt Nghiệp Của Minh Anh</h1>
+      <p class="nguoi">Người tổ chức: <span data-bind="nguoiToChuc">Gia đình Minh Anh</span></p>
+      <p class="loi-moi" data-bind="loiMoi">Trân trọng kính mời quý khách đến chung vui cùng gia đình trong ngày đặc biệt này. Sự hiện diện của quý khách là niềm vinh hạnh lớn lao đối với chúng tôi.</p>
+
+      <div class="dem-nguoc" role="timer" aria-label="Đếm ngược tới ngày diễn ra">
+        <div class="o"><div class="so" id="dNgay">–</div><div class="nhan">Ngày</div></div>
+        <div class="o"><div class="so" id="dGio">–</div><div class="nhan">Giờ</div></div>
+        <div class="o"><div class="so" id="dPhut">–</div><div class="nhan">Phút</div></div>
+        <div class="o"><div class="so" id="dGiay">–</div><div class="nhan">Giây</div></div>
+      </div>
+
+      <div class="thong-tin">
+        <div class="muc"><div class="nhan">Thời gian</div><div class="gia-tri"><span class="js-ngay">Thứ Bảy, ngày 15 tháng 11 năm 2026</span> — <span data-bind="gio">09:00</span></div></div>
+        <div class="muc"><div class="nhan">Địa điểm</div><div class="gia-tri" data-bind="diaDiem">Hội trường mẫu</div></div>
+        <div class="muc" style="grid-column:1/-1;"><div class="nhan">Địa chỉ</div><div class="gia-tri" data-bind="diaChi">Địa chỉ mẫu, TP. Hồ Chí Minh</div></div>
+      </div>
+
+      <div class="anh-giua">
+        <img data-photo="1" src="assets/anh-1.jpg" alt="Ảnh kỷ niệm 1" class="anh-phu">
+        <img data-photo="2" src="assets/anh-2.jpg" alt="Ảnh kỷ niệm 2" class="anh-phu">
+      </div>
+
+      <div>
+        <a class="nut nut-chinh" id="nutXacNhan" href="#" target="_blank" rel="noopener">Xác nhận tham dự qua WhatsApp</a>
+        <a class="nut nut-phu" id="nutChiDuong" href="#" target="_blank" rel="noopener">Chỉ đường</a>
+        <a class="nut nut-phu" id="nutLich" href="#" target="_blank" rel="noopener">Lưu vào Google Calendar</a>
+      </div>
+
+      <iframe class="ban-do" id="banDo" title="Bản đồ địa điểm" loading="lazy" src="about:blank"></iframe>
+      <p class="loi-ket" data-bind="loiKet">Rất mong được đón tiếp quý khách!</p>
+    </div>
+  </article>
+</div>
+<script src="../../assets/cau-hinh.js" data-mau="thiep-moi-da-nang" data-goc="../../"></script>
+<script>
+(() => {
+  'use strict';
+  const cfg = window.TPL_CFG || {};
+  // Khi mở trực tiếp (chưa qua trình chỉnh sửa), lấy giá trị mặc định ngay từ nội dung đang hiển thị.
+  const tuTrang = (key) => {
+    const el = document.querySelector('[data-bind="' + key + '"]');
+    return el ? el.textContent.trim() : '';
+  };
+  const lay = (key) => (cfg[key] !== undefined && cfg[key] !== '' ? cfg[key] : tuTrang(key));
+  const ngay = cfg.ngay || '2026-11-15';
+  const gio = (cfg.gio || '09:00').toString().slice(0, 5);
+  const moc = new Date(ngay + 'T' + gio + ':00');
+  const d = new Date(ngay + 'T00:00:00');
+  if (!isNaN(d)) {
+    const thu = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][d.getDay()];
+    document.querySelectorAll('.js-ngay').forEach(el => el.textContent = thu + ', ngày ' + d.getDate() + ' tháng ' + (d.getMonth() + 1) + ' năm ' + d.getFullYear());
+  }
+  const pad = n => String(n).padStart(2, '0');
+  const tick = () => {
+    let diff = moc - new Date();
+    if (diff < 0) diff = 0;
+    const s = Math.floor(diff / 1000);
+    document.getElementById('dNgay').textContent = Math.floor(s / 86400);
+    document.getElementById('dGio').textContent = pad(Math.floor(s / 3600) % 24);
+    document.getElementById('dPhut').textContent = pad(Math.floor(s / 60) % 60);
+    document.getElementById('dGiay').textContent = pad(s % 60);
+  };
+  tick(); setInterval(tick, 1000);
+  const diaChi = (lay('diaChi') || '').trim();
+  const diaDiem = (lay('diaDiem') || '').trim();
+  const noi = encodeURIComponent((diaDiem + ' ' + diaChi).trim());
+  document.getElementById('banDo').setAttribute('src', 'https://www.google.com/maps?q=' + noi + '&output=embed');
+  document.getElementById('nutChiDuong').setAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=' + noi);
+  const lich = new URL('https://calendar.google.com/calendar/render');
+  lich.searchParams.set('action', 'TEMPLATE');
+  lich.searchParams.set('text', lay('tenSuKien') || 'Sự kiện');
+  const dinh = dt => dt.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  lich.searchParams.set('dates', dinh(moc) + '/' + dinh(new Date(moc.getTime() + 2 * 3600 * 1000)));
+  lich.searchParams.set('details', lay('loiMoi') || '');
+  lich.searchParams.set('location', (diaDiem + ' ' + diaChi).trim());
+  document.getElementById('nutLich').setAttribute('href', lich.toString());
+  const sdt = (lay('soDienThoai') || '').replace(/\D/g, '');
+  const nutXN = document.getElementById('nutXacNhan');
+  if (sdt) {
+    const so = sdt.startsWith('0') ? '84' + sdt.slice(1) : sdt;
+    const tn = encodeURIComponent('Xin chào, tôi xác nhận sẽ tham dự "' + (lay('tenSuKien') || 'sự kiện') + '" vào ' + (document.querySelector('.js-ngay') || {}).textContent + '.');
+    nutXN.setAttribute('href', 'https://wa.me/' + so + '?text=' + tn);
+  } else { nutXN.classList.add('an'); }
+})();
+</script>
+</body>
+</html>

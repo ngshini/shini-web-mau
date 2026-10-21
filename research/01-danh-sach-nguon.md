@@ -42,3 +42,23 @@ Trạng thái phân biệt rõ: **đã tìm thấy** ≠ **đã chạy thử** �
 - Nhóm **Lời mời khác** (tốt nghiệp/tân gia/kỷ niệm): chưa tìm được template MIT chất lượng (đã tìm GitHub + GitLab). Hướng Đợt 2: tự dựng 1 mẫu từ khung thiệp cưới/sinh nhật đã tích hợp, hoặc tiếp tục tìm nguồn.
 - Nhóm **Sự kiện**: ứng viên hiện có đều không đạt (thương hiệu TEDx / quá mới / cần build Next.js). Đợt 2 xử lý tiếp.
 - Nhóm **Dịch vụ**: bổ sung Portfolio (vCard) + Agency ở Đợt 2.
+
+---
+
+# Bổ sung Đợt 2 (21/10/2026)
+
+## Tìm kiếm thêm cho nhóm Lời mời khác + Sự kiện
+- "wisuda invitation" (thiệp tốt nghiệp Indonesia): 6 repo, **tất cả NO-LICENSE** → loại toàn bộ.
+- "event landing page template html, license:mit, stars>15": **0 kết quả đạt**.
+- topic:invitation license:mit: chỉ có thêm các repo thiệp cưới đã biết + gói phần mềm không liên quan.
+=> Kết luận: tự dựng 2 mẫu gốc (thiep-moi-da-nang cho nhóm Lời mời khác, su-kien-cong-dong cho nhóm Sự kiện) — mã nguồn gốc của dự án, không vướng giấy phép.
+
+## Đã tích hợp Đợt 2
+| Mẫu | Nguồn | Commit | Giấy phép | Ghi chú xử lý |
+|---|---|---|---|---|
+| portfolio-vcard | codewithsadee/vcard-personal-portfolio | 927f09a6 | MIT | Ionicons đóng gói về máy; sửa cơ chế điều hướng/lọc sang data-*; form → mailto; bỏ Lorem ipsum |
+| web-doanh-nghiep | StartBootstrap/startbootstrap-agency | b2d5d5c6 | MIT | Gỡ SB Forms (dịch vụ ngoài) → khối liên hệ thật; FA 6.3 đóng gói |
+| sinh-nhat-hoa-anh-dao | Harmann60/Happy-Birthday | 0652da29 | MIT | Repo thiếu 100% ảnh/video → tự sản xuất bằng code; gỡ lightGallery GPL → hộp xem ảnh tự viết; font Mochiy (không có tiếng Việt) → Baloo 2 |
+| thiep-cuoi-hien-dai | dewanakl/undangan | 99e7c2d1 | MIT | Gỡ hệ thống bình luận/API của tác giả + QR mừng cưới của tác giả + nhạc/video không rõ quyền; build lại esbuild sau khi vá loader (CDN → vendor) và guest.js (khởi tạo bình luận có điều kiện) |
+| thiep-moi-da-nang | Shini Web tự dựng | — | Mẫu gốc của dự án | Cho nhóm Lời mời khác |
+| su-kien-cong-dong | Shini Web tự dựng | — | Mẫu gốc của dự án | Cho nhóm Sự kiện |

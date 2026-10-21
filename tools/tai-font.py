@@ -26,7 +26,7 @@ for folder, query in JOBS:
     fonts_dir = os.path.join(ROOT, folder, "vendor", "fonts")
     os.makedirs(fonts_dir, exist_ok=True)
     for subset, body in blocks:
-        if subset not in ("vietnamese", "latin"): continue
+        if subset not in ("vietnamese", "latin", "latin-ext"): continue
         fam = re.search(r"font-family:\s*'([^']+)'", body).group(1).replace(" ", "")
         style = re.search(r"font-style:\s*(\w+)", body).group(1)
         weight = re.search(r"font-weight:\s*(\d+)", body).group(1)
